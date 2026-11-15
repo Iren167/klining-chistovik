@@ -1,0 +1,74 @@
+/* Чистовик VS-16: надстройка над каркасом «клининг, Кино».
+   Изюминки: живая карточка расчёта на первом экране (запрос печатается, цена и бригада ставятся галочками),
+   бегущая строка с галочками, контурное название в финале, блик и волна на кнопках. */
+:root { --x-ease: cubic-bezier(.2, .8, .2, 1); }
+
+/* ---------- живая карточка расчёта на первом экране ---------- */
+.req { position: absolute; z-index: 3; top: calc(5rem + var(--v-4)); right: var(--v-gutter); width: clamp(17rem, 22vw, 22rem);
+  background: var(--v-surface); border: 1px solid var(--v-hair); border-radius: var(--v-radius); box-shadow: var(--v-e2); padding: var(--v-4) var(--v-5) var(--v-4); color: var(--v-ink); }
+.req__head { display: flex; align-items: center; gap: .55em; font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink-soft); font-weight: 500; }
+.req__dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--v-accent); box-shadow: 0 0 0 4px color-mix(in oklab, var(--v-accent) 28%, transparent); animation: x-pulse 2s ease-in-out infinite; }
+@keyframes x-pulse { 50% { box-shadow: 0 0 0 7px color-mix(in oklab, var(--v-accent) 0%, transparent); } }
+.req__field { margin-top: var(--v-3); min-height: 2.7em; padding-bottom: var(--v-3); border-bottom: 1px solid var(--v-hair-strong); font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-lg); line-height: 1.25; }
+.is-typing::after { content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 2px; vertical-align: -.15em; background: var(--v-accent-deep); animation: x-caret .9s steps(1) infinite; }
+@keyframes x-caret { 50% { opacity: 0; } }
+.req__res { margin-top: var(--v-3); display: grid; gap: var(--v-2); }
+.req__row { display: grid; grid-template-columns: 1.4rem auto minmax(0, 1fr); align-items: center; gap: var(--v-2); font-size: var(--v-t-sm); }
+.req__row .tick { width: 1.25rem; height: 1.25rem; border-radius: 4px; }
+.req__row span { color: var(--v-ink-soft); }
+.req__row b { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.req__note { margin-top: var(--v-3); padding-top: var(--v-3); border-top: 1px dashed var(--v-hair-strong); font-size: var(--v-t-xs); color: var(--v-ink-soft); }
+/* когда включён JS: строки результата появляются по очереди */
+.req.is-live .req__row { opacity: 0; transform: translateY(6px); transition: opacity .35s var(--x-ease), transform .35s var(--x-ease); }
+.req.is-live .req__row .tick { transform: scale(.5); transition: transform .35s var(--x-ease) .1s; }
+.req.is-live .req__row.is-in { opacity: 1; transform: none; }
+.req.is-live .req__row.is-in .tick { transform: none; }
+.req.is-swap { animation: x-swap .5s var(--x-ease); }
+@keyframes x-swap { from { opacity: .0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 860px) {
+  .req { left: var(--v-gutter); right: var(--v-gutter); width: auto; top: calc(4.6rem + var(--v-2)); padding: var(--v-3) var(--v-4); }
+  .req__field { font-size: var(--v-t-base); min-height: 1.3em; margin-top: var(--v-2); padding-bottom: var(--v-2); }
+  .req__res { margin-top: var(--v-2); gap: var(--v-1); }
+  .req__note { display: none; }
+}
+@media (max-width: 860px) and (max-height: 700px) { .req__res li:nth-child(3) { display: none; } }
+
+/* ---------- бегущая строка с галочками ---------- */
+.x-marq { overflow: hidden; background: var(--v-accent); color: var(--v-accent-ink); padding: clamp(.85rem, 2vw, 1.25rem) 0; position: relative; z-index: 2; }
+.x-marq__track { display: flex; align-items: center; width: max-content; gap: clamp(1rem, 2.4vw, 2rem); animation: x-marq 46s linear infinite; padding-left: clamp(1rem, 2.4vw, 2rem); }
+.x-marq span { font-family: var(--v-font-display); font-weight: 500; font-size: clamp(1.1rem, .95rem + 1vw, 1.8rem); white-space: nowrap; }
+.x-marq .tick { width: 1.15rem; height: 1.15rem; border-radius: 3px; flex: none; }
+.x-marq .tick::before { background: var(--v-accent-ink); }
+.x-marq .tick::after { border-color: var(--v-accent); }
+@keyframes x-marq { to { transform: translateX(-50%); } }
+.x-marq:hover .x-marq__track { animation-play-state: paused; }
+
+/* ---------- контурное название в финале ---------- */
+.x-big { position: absolute; left: 50%; bottom: clamp(3.5rem, 9vh, 6rem); transform: translateX(-50%); z-index: 0; pointer-events: none; white-space: nowrap;
+  font-family: var(--v-font-display); font-weight: 600; font-size: clamp(5rem, 21vw, 22rem); line-height: .85; letter-spacing: -.03em; color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--v-accent-deep) 20%, transparent); }
+.fin__inner, .foot { position: relative; z-index: 1; }
+.foot { position: absolute; }
+
+/* ---------- отзывы: пометка «демо» ---------- */
+.reviews__demo { margin-top: var(--v-2); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
+
+/* ---------- кнопки: блик и волна ---------- */
+.v-btn { position: relative; overflow: hidden; }
+.v-btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / .4) 50%, transparent 65%); transform: translateX(-120%); pointer-events: none; }
+.v-btn:hover::after { transform: translateX(120%); transition: transform .7s var(--x-ease); }
+.v-btn:active { transform: scale(.97); }
+.x-ripple { position: absolute; border-radius: 50%; background: rgb(255 255 255 / .5); transform: scale(0); animation: x-ripple .65s var(--x-ease) forwards; pointer-events: none; }
+@keyframes x-ripple { to { transform: scale(2.4); opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .x-marq__track { animation: none; }
+  .req__dot, .is-typing::after, .req.is-swap { animation: none; }
+}
+
+/* читаемость первого экрана: окно слева яркое, подложку делаем плотнее */
+.hero__scrim { background: radial-gradient(130% 105% at 0% 100%, rgb(243 245 242 / .97) 0%, rgb(243 245 242 / .9) 38%, rgb(243 245 242 / .55) 62%, transparent 80%); }
+@media (max-width: 860px) { .hero__scrim { background: linear-gradient(to top, rgb(243 245 242 / .98) 0%, rgb(243 245 242 / .94) 44%, rgb(243 245 242 / .6) 66%, transparent 86%); } }
+
+/* отзывы: все три цитаты одного размера (крупная больше не выделяется) */
+.reviews .reviews__item--big .reviews__text { font-size: var(--v-t-base); line-height: 1.6; font-weight: 400; }
