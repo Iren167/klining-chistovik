@@ -67,8 +67,8 @@
 }
 
 /* читаемость первого экрана: окно слева яркое, подложку делаем плотнее */
-.hero__scrim { background: radial-gradient(130% 105% at 0% 100%, rgb(243 245 242 / .97) 0%, rgb(243 245 242 / .9) 38%, rgb(243 245 242 / .55) 62%, transparent 80%); }
-@media (max-width: 860px) { .hero__scrim { background: linear-gradient(to top, rgb(243 245 242 / .98) 0%, rgb(243 245 242 / .94) 44%, rgb(243 245 242 / .6) 66%, transparent 86%); } }
+.hero__scrim { background: radial-gradient(130% 105% at 0% 100%, rgb(241 244 247 / .97) 0%, rgb(241 244 247 / .9) 38%, rgb(241 244 247 / .55) 62%, transparent 80%); }
+@media (max-width: 860px) { .hero__scrim { background: linear-gradient(to top, rgb(241 244 247 / .98) 0%, rgb(241 244 247 / .94) 44%, rgb(241 244 247 / .6) 66%, transparent 86%); } }
 
 /* отзывы: все три цитаты одного размера (крупная больше не выделяется) */
 .reviews .reviews__item--big .reviews__text { font-size: var(--v-t-base); line-height: 1.6; font-weight: 400; }

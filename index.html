@@ -16,7 +16,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%273%27 y=%273%27 width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%234fd1b0%27/%3E%3Cpath d=%27M9 16.5l5 5 9-10%27 fill=%27none%27 stroke=%27%230f2a22%27 stroke-width=%273.2%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect x=%273%27 y=%273%27 width=%2726%27 height=%2726%27 rx=%276%27 fill=%27%238fb3d1%27/%3E%3Cpath d=%27M9 16.5l5 5 9-10%27 fill=%27none%27 stroke=%27%2310202e%27 stroke-width=%273.2%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Rubik:wght@500;600&display=swap">
@@ -26,17 +26,17 @@
 {"@context":"https://schema.org","@type":"LocalBusiness","name":"Чистовик","description":"Уборка квартир: поддерживающая, генеральная, после ремонта. Что входит – списком по комнатам, цена по метражу известна до приезда, приёмка по акту.","url":"https://Iren167.github.io/klining-chistovik","image":"https://Iren167.github.io/klining-chistovik/assets/og.jpg","telephone":"+79000000000","address":{"@type":"PostalAddress","streetAddress":"ул. Московская, 52","addressLocality":"Калуга","addressCountry":"RU"},"areaServed":"Калуга","openingHours":"Mo-Su 08:00-21:00","priceRange":"от 110 ₽ за м²"}
 </script>
 <style>
-  html, body { margin: 0; background: #f3f5f2; }
+  html, body { margin: 0; background: #f1f4f7; }
 
   /* ---- тема: шесть цветов, два шрифта ------------------------------------ */
   .v-page {
-    --v-canvas: #f3f5f2; --v-surface: #ffffff;
-    --v-ink: #17201d; --v-ink-soft: #5c6a64;           /* 5,2:1 на холсте */
-    --v-accent: #4fd1b0; --v-accent-ink: #0f2a22;      /* кнопка 8,1:1 */
-    --v-accent-deep: #196d57;                          /* мелкий акцентный текст, 5,7:1 */
+    --v-canvas: #f1f4f7; --v-surface: #ffffff;
+    --v-ink: #16202a; --v-ink-soft: #5a6773;           /* 5,2:1 на холсте */
+    --v-accent: #8fb3d1; --v-accent-ink: #10202e;      /* кнопка 8,1:1 */
+    --v-accent-deep: #2f5d82;                          /* мелкий акцентный текст, 5,7:1 */
     --v-font-display: "Rubik", "Segoe UI", system-ui, sans-serif;
     --v-font-text: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-    --v-shadow-color: 23 32 29;
+    --v-shadow-color: 22 32 42;
     --v-e1: 0 1px 2px rgb(var(--v-shadow-color) / .08), 0 8px 22px rgb(var(--v-shadow-color) / .10);
     --v-e2: 0 2px 6px rgb(var(--v-shadow-color) / .10), 0 22px 54px rgb(var(--v-shadow-color) / .16);
     --v-radius: 6px;
@@ -58,7 +58,7 @@
 
   /* ---- шапка: марка, счётчик акта (фирменный ход), одна кнопка ------------- */
   .bar { position: fixed; inset: 0 0 auto 0; z-index: 30; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--v-6);
-    padding: var(--v-3) var(--v-gutter); background: rgb(243 245 242 / .86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--v-hair); }
+    padding: var(--v-3) var(--v-gutter); background: rgb(241 244 247 / .86); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--v-hair); }
   .bar__mark { font-family: var(--v-font-display); font-weight: 600; font-size: var(--v-t-base); text-decoration: none; display: inline-flex; align-items: center; gap: .5em; white-space: nowrap; }
   .bar__mark .tick { width: 1.1rem; height: 1.1rem; border-radius: 3px; }
   .bar__act { display: flex; align-items: center; gap: var(--v-3); justify-self: center; width: min(100%, 30rem); font-size: var(--v-t-sm); color: var(--v-ink-soft); }
@@ -83,7 +83,7 @@
   /* ---- 1 · hero: кухня после уборки на весь экран, оффер внизу слева -------- */
   .hero__img picture, .hero__img img { display: block; width: 100%; height: 100%; object-fit: cover; }
   /* скрим светлый, углом: текст ложится на пустую стену и пол, заложенные в промпте */
-  .hero__scrim { background: radial-gradient(130% 100% at 0% 100%, rgb(243 245 242 / .94) 0%, rgb(243 245 242 / .8) 34%, rgb(243 245 242 / .35) 60%, transparent 78%); }
+  .hero__scrim { background: radial-gradient(130% 100% at 0% 100%, rgb(241 244 247 / .94) 0%, rgb(241 244 247 / .8) 34%, rgb(241 244 247 / .35) 60%, transparent 78%); }
   .hero__copy, .hero__turn { max-width: min(44rem, 58vw); }
   .hero__label { font-size: var(--v-t-sm); font-weight: 500; color: var(--v-accent-deep); margin-bottom: var(--v-4); }
   .hero__copy h1 { font-size: clamp(2.4rem, 1.2rem + 3.4vw, 5rem); line-height: .98; }
@@ -92,7 +92,7 @@
   .hero__hint { font-size: var(--v-t-sm); color: var(--v-ink-soft); max-width: 30ch; }
   .hero__turn .v-lede { margin-top: var(--v-4); max-width: 44ch; }
   @media (max-width: 860px) {
-    .hero__scrim { background: linear-gradient(to top, rgb(243 245 242 / .97) 0%, rgb(243 245 242 / .92) 38%, rgb(243 245 242 / .55) 62%, transparent 82%); }
+    .hero__scrim { background: linear-gradient(to top, rgb(241 244 247 / .97) 0%, rgb(241 244 247 / .92) 38%, rgb(241 244 247 / .55) 62%, transparent 82%); }
     .hero__copy, .hero__turn { max-width: none; }
     .hero__copy h1 { font-size: clamp(1.8rem, 1.2rem + 2.8vw, 2.4rem); line-height: 1.04; }
     .hero__copy .v-lede, .hero__turn .v-lede { font-size: var(--v-t-base); margin-top: var(--v-4); }
@@ -166,7 +166,7 @@
   }
 
   /* ---- 4 · как проходит: фото на весь экран, четыре реплики-шага ------------ */
-  .kak__scrim { background: radial-gradient(120% 100% at 0% 100%, rgb(243 245 242 / .95) 0%, rgb(243 245 242 / .82) 36%, rgb(243 245 242 / .35) 62%, transparent 80%); }
+  .kak__scrim { background: radial-gradient(120% 100% at 0% 100%, rgb(241 244 247 / .95) 0%, rgb(241 244 247 / .82) 36%, rgb(241 244 247 / .35) 62%, transparent 80%); }
   .kak__title { position: absolute; z-index: 3; top: calc(4.6rem + var(--v-4)); left: var(--v-gutter); font-size: var(--v-t-xs); letter-spacing: var(--v-track-wide); text-transform: uppercase; color: var(--v-ink-soft); }
   .kak__step { max-width: min(40rem, 50vw); }
   .kak__n { display: block; font-family: var(--v-font-display); font-weight: 500; color: var(--v-accent-deep); font-size: var(--v-t-sm); font-variant-numeric: tabular-nums; margin-bottom: var(--v-3); }
@@ -179,7 +179,7 @@
   .kak__index span:nth-child(3) { --lo: .54; --hi: .78; }
   .kak__index span:nth-child(4) { --lo: .78; --hi: 2; }
   @media (max-width: 860px) {
-    .kak__scrim { background: linear-gradient(to top, rgb(243 245 242 / .97) 0%, rgb(243 245 242 / .92) 40%, rgb(243 245 242 / .5) 64%, transparent 84%); }
+    .kak__scrim { background: linear-gradient(to top, rgb(241 244 247 / .97) 0%, rgb(241 244 247 / .92) 40%, rgb(241 244 247 / .5) 64%, transparent 84%); }
     .kak__step { max-width: none; }
     .kak__step .v-lede { font-size: var(--v-t-base); }
     .kak__index { display: none; }
